@@ -906,8 +906,12 @@ def initialize_metadata(self, cols: Sequence, locus_: str, clonekey: str, collap
     tmp_metadata['productive_summary'] = [
         'Multi' if '|' in i else i for i in tmp_metadata['productive']]
 
-    conversion_dict = {'igha1': 'IgA', 'igha2': 'IgA', 'ighm': 'IgM', 'ighd': 'IgD', 'ighe': 'IgE', 'ighg1': 'IgG', 'ighg2': 'IgG', 'ighg3': 'IgG', 'ighg4': 'IgG', 'igkc': 'IgK', 'iglc1': 'IgL', 'iglc2': 'IgL', 'iglc3': 'IgL', 'iglc4': 'IgL', 'iglc5': 'IgL', 'iglc6': 'IgL', 'iglc7': 'IgL',
-                       'igha': 'IgA', 'ighg': 'IgG', 'iglc': 'IgL', 'nan': 'unassigned', 'na': 'unassigned', 'none': 'unassigned', '': 'unassigned', 'unassigned': 'unassigned', np.nan: 'unassigned', None: 'unassigned'}
+    # conversion_dict = {'igha1': 'IgA', 'igha2': 'IgA', 'ighm': 'IgM', 'ighd': 'IgD', 'ighe': 'IgE', 'ighg1': 'IgG', 'ighg2': 'IgG', 'ighg2a': 'IgG', 'ighg2b': 'IgG', 'ighg2c': 'IgG', 'ighg3': 'IgG', 'ighg4': 'IgG', 'igkc': 'IgK', 'iglc1': 'IgL', 'iglc2': 'IgL', 'iglc3': 'IgL', 'iglc4': 'IgL', 'iglc5': 'IgL', 'iglc6': 'IgL', 'iglc7': 'IgL',
+    #                   'igha': 'IgA', 'ighg': 'IgG', 'iglc': 'IgL', 'nan': 'unassigned', 'na': 'unassigned', 'none': 'unassigned', '': 'unassigned', 'unassigned': 'unassigned', np.nan: 'unassigned', None: 'unassigned'}
+    conversion_dict = {'ighgcmm': 'IgG', 'igkcmm': 'IgK', 'ighmmm': 'IgG', 'ighamm': 'IgA', 'ighgbmm': 'IgG', 'ighgmm': 'IgG', 'ighg2cmm': 'IgG', 'iglc3cf': 'IgL', 'ighg2bmm': 'IgG', 'iglc1cf': 'IgL', 'ighg1mm': 'IgG', 'iglc2mm': 'IgL', 'ighg3mm': 'IgG', 'iglc1mm': 'IgL', 'ighdmm': 'IgD', 'iglc7cf': 'IgL', 'ighmcf': 'IgM', 'ighacf': 'IgA', 'iglc3mm': 'IgL', 'iglc4cf': 'IgL', 'ighg1cf': 'IgG', 'iglc5cf': 'IgL', 'iglc9cf': 'IgL', 'igkccf': 'IgK', 'ighemm': 'IgE', 'iglc2cf': 'IgL', 'ighg2cf': 'IgG',
+                       'nan': 'unassigned', 'na': 'unassigned', 'none': 'unassigned', '': 'unassigned', 'unassigned': 'unassigned', np.nan: 'unassigned', None: 'unassigned'}
+
+
     isotype = []
     for k in tmp_metadata['c_call'+suffix_h]:
         if isinstance(k, str):
